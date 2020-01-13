@@ -29,3 +29,20 @@ class Solution:
             root.left=self.reConstructBinaryTree(prel,tinl)
             root.right=self.reConstructBinaryTree(prer,tinr)
             return root
+
+
+ """题目描述：用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。"""
+class Solution():
+    def __init__(self):
+        self.stack1=[]
+        self.stack2=[]
+    def push(self,node):
+        self.stack1.append(node)
+    def pop(self):
+        if self.stack2==[]:
+            while len(self.stack1)!=0:
+                self.stack2.append(self.stack1[len(self.stack1)-1])
+                self.stack1.pop()
+        pop=self.stack2[len(self.stack2)-1]
+        self.stack2.pop()
+        return pop
