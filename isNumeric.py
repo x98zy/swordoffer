@@ -36,3 +36,39 @@ class Solution:
                 elif numlist[1][i] not in num:
                     return False
         return True
+
+
+class Solution:
+    # s字符串
+    def isNumeric(self, s):
+        # write code here
+        # 标记符号、小数点、e是否出现过
+        sign = False
+        decimal = False
+        hasE = False
+        for i in range(len(s)):
+            if (s[i] == 'e' or s[i] == 'E'):
+                # e后面一定要接数字
+                if (i == len(s)-1):
+                    return False
+                # 不能同时存在两个e
+                if (hasE == True):
+                    return False
+                hasE = True
+            elif (s[i] == '+' or s[i] == '-'):
+                # 第二次出现+-符号，则必须紧接在e之后
+                if (sign and s[i-1] != 'e' and s[i-1] != 'E'):
+                    return False
+                # 第一次出现+-符号，且不是在字符串开头，则也必须紧接在e之后
+                elif (sign == False and i > 0 and s[i-1] != 'e' and s[i-1] != 'E'):
+                    return False
+                sign = True
+            elif (s[i] == '.'):
+                # e后面不能接小数点，小数点不能出现两次
+                if (hasE or decimal):
+                    return False
+                decimal = True
+            # 非法字符
+            elif(s[i] < '0' or s[i] > '9'):
+                return False
+        return True
