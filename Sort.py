@@ -36,3 +36,19 @@ def InsertSort(iters):
             j-=1
         iters[j+1]=temp
     return iters
+
+def ShellSort(iters):
+    """希尔排序"""
+    space=len(iters)//2
+    while space>=1:
+        ShellInsert(iters,len(iters),space)
+        space=space//2
+    return iters
+def ShellInsert(iters,length,space):
+    for i in range(space,length):
+        temp=iters[i]
+        j=i-space
+        while j>=0 and iters[j]>temp:
+            iters[j+space]=iters[j]
+            j=j-space
+        iters[j+space]=temp
