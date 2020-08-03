@@ -26,4 +26,13 @@ def MaoPaoSort1(iters):
         low+=1
     return iters
 
-print(MaoPaoSort1([1,3,2,7,4,6,9]))
+def InsertSort(iters):
+    """插入排序"""
+    for i in range(1,len(iters)):
+        temp=iters[i]
+        j=i-1
+        while j>=0 and iters[j]>temp:
+            iters[j+1]=iters[j]
+            j-=1
+        iters[j+1]=temp
+    return iters
