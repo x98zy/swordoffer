@@ -52,3 +52,14 @@ def ShellInsert(iters,length,space):
             iters[j+space]=iters[j]
             j=j-space
         iters[j+space]=temp
+
+
+def SelectSort(nums):
+    for i in range(len(nums)-1):
+        midindex=i
+        for j in range(i+1,len(nums)):
+            if nums[j]<nums[midindex]:
+                midindex=j
+        if i!=midindex:
+            nums[i],nums[midindex]=nums[midindex],nums[i]
+    return nums
