@@ -63,3 +63,19 @@ def SelectSort(nums):
         if i!=midindex:
             nums[i],nums[midindex]=nums[midindex],nums[i]
     return nums
+
+def Quick_Sort(nums):
+    if len(nums)>=2:
+        mid=nums[len(nums)//2]
+        left,right=[],[]
+        nums.remove(mid)
+        for num in nums:
+            if num<mid:
+                left.append(num)
+            else:
+                right.append(num)
+        return Quick_Sort(left)+[mid]+Quick_Sort(right)
+    else:
+        return nums
+
+print(Quick_Sort([2,4,1,7,5,3,9]))
