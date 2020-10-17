@@ -7,7 +7,6 @@ class Solution:
             n=n&0xffffffff
         return bin(n).count("1")
 #方式二
-@
 class Solution():
     def NumberOf1(self, n):
         if n<0:

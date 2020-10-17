@@ -30,7 +30,7 @@ class Solution:
             start+=1
         return end
 
-    
+
 class Solution:
     def FindGreatestSumOfSubArray(self, array):
         # write code here
