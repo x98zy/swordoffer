@@ -79,3 +79,40 @@ def Quick_Sort(nums):
         return nums
 
 print(Quick_Sort([2,4,1,7,5,3,9]))
+
+
+#堆排序
+def buildmaxheap(arr):
+    """构建大顶堆"""
+    for i in range(len(arr)//2,-1,-1):
+        heapify(arr,i)
+
+def heapify(arr,i):
+    """确保根节点最大"""
+    left=2*i+1
+    right=2*i+2
+    largest=i
+    if left<arrlen and arr[left]>arr[largest]:
+        largest=left
+    if right<arrlen and arr[right]>arr[largest]:
+        largest=right
+
+    if largest!=i:
+        swap(arr,i,largest)
+        heapify(arr,largest)
+
+def swap(arr,i,j):
+    arr[i],arr[j]=arr[j],arr[i]
+
+def heapsort(arr):
+    global arrlen
+    arrlen=len(arr)
+    buildmaxheap(arr)
+    for i in range(len(arr)-1,0,-1):
+        swap(arr,0,i)
+        arrlen-=1
+        heapify(arr,0)
+
+    return arr
+
+print(heapsort([1,4,2,7,5,11,9]))
