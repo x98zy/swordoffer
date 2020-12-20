@@ -115,4 +115,23 @@ def heapsort(arr):
 
     return arr
 
-print(heapsort([1,4,2,7,5,11,9]))
+def CountingSort(arr):
+    max_value=max(arr)
+    bucket_len=max_value+1
+    bucket=[0]*bucket_len
+
+    for i in range(len(arr)):
+        if not bucket[arr[i]]:
+            bucket[arr[i]]=0
+        bucket[arr[i]]+=1
+
+    sortindex=0
+    for j in range(bucket_len):
+        while bucket[j]>0:
+            arr[sortindex]=j
+            sortindex+=1
+            bucket[j]-=1
+    return arr
+
+
+print(CountingSort([1,4,2,7,5,11,9]))
