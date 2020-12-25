@@ -135,3 +135,29 @@ def CountingSort(arr):
 
 
 print(CountingSort([1,4,2,7,5,11,9]))
+
+
+def merge_sort(arr):
+    if len(arr)<2:
+        return arr
+    mid=len(arr)//2
+    left=merge_sort(arr[:mid])
+    right=merge_sort(arr[mid:])
+    return merge(left,right)
+
+def merge(left,right):
+    result=[]
+    l,r=0,0
+    while l<len(left) and r<len(right):
+        if left[l]<right[r]:
+            result.append(left[l])
+            l+=1
+        else:
+            result.append(right[r])
+            r+=1
+    result+=left[l:]
+    result+=right[r:]
+    return result
+
+
+print(merge_sort([2,1,7,3,4,2]))
